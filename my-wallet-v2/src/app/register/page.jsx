@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ArrowRight, Eye, EyeOff, TrendingUp, Check } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 export default function Register() {
     const router = useRouter();
@@ -43,7 +44,15 @@ export default function Register() {
             setRegisteredEmail(true);
             return;
         }
-        router.push("/dashboard");
+        
+        const loginRes = await signIn("credentials", {
+            redirect: false,
+            email,
+            password,
+        });
+
+        if (loginRes?.ok) router.push("/dashboard");
+
     }
 
     return (
