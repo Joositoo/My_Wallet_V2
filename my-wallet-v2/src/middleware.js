@@ -3,13 +3,13 @@ import { NextResponse } from 'next/server';
 
 export async function middleware(request) {
     const token = await getToken({
-        req: requestAnimationFrame,
+        req: request,
         secret: process.env.NEXTAUTH_SECRET,
     });
 
     const { pathname } = request.nextUrl;
 
-    if (token && pathname === '/login') {
+    if (token && (pathname === '/login' || pathname === '/register')) {
         return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
@@ -21,5 +21,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ['/dashboard:path*', '/login'],
+    matcher: ['/dashboard/:path*', '/login', '/register'],
 };
