@@ -1,6 +1,11 @@
+'use client';
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+    const router = useRouter();
+
+
     return (
         <section className=" flex flex-col items-center justify-center px-6 py-20">
             <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -13,12 +18,12 @@ export default function Hero() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 hover:cursor-pointer">
+                    <button onClick={() => router.push("/register")} className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 hover:cursor-pointer">
                         Comenzar ahora
                         <ArrowRight className="w-5 h-5" />
                     </button>
 
-                    <button className="px-8 py-3 border border-border rounded-lg hover:bg-accent transition-colors  hover:cursor-pointer">
+                    <button onClick={() => router.push("/login")} className="px-8 py-3 border border-border rounded-lg hover:bg-accent transition-colors  hover:cursor-pointer">
                         Iniciar sesión
                     </button>
                 </div>

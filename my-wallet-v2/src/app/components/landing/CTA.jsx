@@ -1,6 +1,9 @@
+'use client';
 import { ArrowRight, Mail } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function CTA() {
+    const router = useRouter();
     return (
         <section className="py-20 px-6 bg-accent/30">
             <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -13,7 +16,7 @@ export default function CTA() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                    <button className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 hover:cursor-pointer">
+                    <button onClick={() => router.push("/register")} className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 hover:cursor-pointer">
                         Crear cuenta gratis
                         <ArrowRight className="w-5 h-5" />
                     </button>
