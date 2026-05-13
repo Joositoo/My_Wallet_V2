@@ -184,7 +184,7 @@ export default function Profile() {
                                             onClick={() =>
                                                 setIsEditingName(true)
                                             }
-                                            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                            className="text-sm text-muted-foreground hover:text-foreground transition-colors hover:cursor-pointer"
                                         >
                                             Editar
                                         </button>
