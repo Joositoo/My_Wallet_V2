@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-05-2026 a las 12:55:48
+-- Tiempo de generación: 13-05-2026 a las 02:30:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -60,7 +60,8 @@ CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `tipo` enum('ingreso','gasto') NOT NULL
+  `tipo` enum('ingreso','gasto') NOT NULL,
+  `icono` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -261,7 +262,7 @@ ALTER TABLE `aportaciones`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `deudas`
@@ -303,7 +304,7 @@ ALTER TABLE `suscripciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
