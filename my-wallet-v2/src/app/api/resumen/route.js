@@ -29,7 +29,9 @@ export async function GET(request) {
 
         const [totalAnnualExpense] = await pool.query('SELECT SUM(cantidad) FROM gastos WHERE usuario_id = ? AND YEAR(fecha) = ?',
             [session.user.id, year],);
-            console.log(allMovements);
+        
+        const [totalHistoricalIncome] = await pool.query('SELECT SUM(cantidad) FROM ingresos WHERE usuario_id = ?',
+            [session.user.id]);
             
         return NextResponse.json(
             {
@@ -37,6 +39,7 @@ export async function GET(request) {
                 allMovements: allMovements,
                 totalAnualIncome: totalAnualIncome[0]['SUM(cantidad)'] || 0,
                 totalAnnualExpense: totalAnnualExpense[0]['SUM(cantidad)'] || 0,
+                totalHistoricalIncome: totalHistoricalIncome[0]['SUM(cantidad)'] || 0,
             },
             { status: 200}
         );
