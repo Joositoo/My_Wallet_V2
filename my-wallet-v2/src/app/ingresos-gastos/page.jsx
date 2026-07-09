@@ -372,7 +372,7 @@ export default function IngresosGastos({ onNavigate }) {
                                 </div>
                                 <div className="bg-[oklch(0.11_0_0)] border border-border rounded-lg p-6">
                                     <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Promedio mensual</p>
-                                    <p className="text-2xl font-semibold tracking-tight">{(currentYearIncome / (new Date().getMonth() + 1))} €</p>
+                                    <p className="text-2xl font-semibold tracking-tight">{(currentYearIncome / (new Date().getMonth() + 1)).toFixed(2)} €</p>
                                 </div>
                             </div>
 
@@ -539,7 +539,7 @@ export default function IngresosGastos({ onNavigate }) {
                                 </div>
                                 <div className="bg-[oklch(0.11_0_0)] border border-border rounded-lg p-6">
                                     <p className="text-xs uppercase tracking-widest text-muted-foreground mb-2">Promedio mensual</p>
-                                    <p className="text-2xl font-semibold tracking-tight">{(currentYearExpense / (new Date().getMonth() + 1))} €</p>
+                                    <p className="text-2xl font-semibold tracking-tight">{(currentYearExpense / (new Date().getMonth() + 1)).toFixed(2)} €</p>
                                 </div>
                             </div>
 

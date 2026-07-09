@@ -57,7 +57,7 @@ export default function Sidebar({
     ];
 
     function handleNavigate(page) {
-        router.push(page);
+        router.push(`/${page}`);
         
         if (onClose) {
         onClose();
