@@ -34,11 +34,11 @@ export default function Sidebar({
             label: "Suscripciones",
             icon: Receipt,
         },
-        {
+        /*{
             id: "inversiones",
             label: "Inversiones",
             icon: Investment,
-        },
+        },*/
         {
             id: "deudas",
             label: "Deudas",
