@@ -11,6 +11,7 @@ import {
     X,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 export default function Sidebar({
     currentPage,
@@ -62,6 +63,11 @@ export default function Sidebar({
         if (onClose) {
         onClose();
     }
+    }
+
+    async function handleLogout() {
+        // Borra la cookie de sesión de NextAuth y vuelve a la landing
+        await signOut({ callbackUrl: "/" });
     }
 
     return (
@@ -119,7 +125,7 @@ export default function Sidebar({
                 </nav>
 
                 <button
-                    onClick={() => handleNavigate("/")}
+                    onClick={handleLogout}
                     className="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-foreground/5 text-muted-foreground hover:text-foreground transition-colors hover:cursor-pointer"
                 >
                     <LogOut className="w-5 h-5" />
