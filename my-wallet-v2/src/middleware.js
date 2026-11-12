@@ -13,7 +13,19 @@ export async function middleware(request) {
         return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
-    if (!token && pathname.startsWith('/dashboard')) {
+    const rutasProtegidas = [
+        '/dashboard',
+        '/ingresos-gastos',
+        '/suscripciones',
+        '/deudas',
+        '/categorias',
+        '/perfil',
+    ];
+    const esRutaProtegida = rutasProtegidas.some(
+        (ruta) => pathname === ruta || pathname.startsWith(`${ruta}/`)
+    );
+
+    if (!token && esRutaProtegida) {
         return NextResponse.redirect(new URL('/login', request.url));
     }
 
@@ -21,5 +33,14 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ['/dashboard/:path*', '/login', '/register'],
+    matcher: [
+        '/dashboard/:path*',
+        '/ingresos-gastos/:path*',
+        '/suscripciones/:path*',
+        '/deudas/:path*',
+        '/categorias/:path*',
+        '/perfil/:path*',
+        '/login',
+        '/register',
+    ],
 };
